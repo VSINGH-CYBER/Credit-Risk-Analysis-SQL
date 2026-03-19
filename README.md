@@ -61,4 +61,93 @@ Core SQL techniques used:
 - CASE WHEN
 - Conditional aggregation for high-risk rate calculations
 
+## 8. Sample Queries
+
+### Query 1: Count customers by credit risk
+SELECT `Credit Risk`, COUNT(*) AS customer_count
+FROM credit_data
+GROUP BY `Credit Risk`;
+
+### Query 2: Average credit amount by risk
+SELECT `Credit Risk`, ROUND(AVG(`Credit amount`), 2) AS avg_credit_amount
+FROM credit_data
+GROUP BY `Credit Risk`;
+
+### Query 3: Average duration by risk
+SELECT `Credit Risk`, ROUND(AVG(Duration), 2) AS avg_duration
+FROM credit_data
+GROUP BY `Credit Risk`;
+
+### Query 4: High-risk rate by purpose
+SELECT
+     Purpose,
+     COUNT(*) AS total_customers,
+     SUM(CASE WHEN `Credit Risk` = 2 THEN 1 ELSE 0 END) AS high_risk_customers,
+     ROUND(SUM(CASE WHEN `Credit Risk` = 2 THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS high_risk_rate_pct
+FROM credit_data
+GROUP BY Purpose
+ORDER BY high_risk_rate_pct DESC;
+
+### Query 5: High-risk rate by housing
+SELECT
+     Housing,
+     COUNT(*) AS total_customers,
+     SUM(CASE WHEN `Credit Risk` = 2 THEN 1 ELSE 0 END) AS high_risk_customers,
+     ROUND(SUM(CASE WHEN `Credit Risk` = 2 THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS high_risk_rate_pct
+FROM credit_data
+GROUP BY Housing
+ORDER BY high_risk_rate_pct DESC;
+
+## 9. Findings
+
+## Key Findings
+
+1. Higher-risk borrowers had larger loans and longer repayment terms
+
+The higher-risk borrower segment showed a higher average credit amount and a longer average loan term than the lower-risk segment. This suggests that larger loans and longer repayment terms may be associated with higher credit risk.
+
+- Lower-risk group (1) average credit amount: 2994.52
+- Higher-risk group (2) average credit amount: 3933.98
+- Lower-risk group (1) average duration: 19.14
+- Higher-risk group (2) average duration: 24.56
+
+2. Loan purpose is an influence on high-risk concentration
+
+Risk concentration varied across loan purposes. Although vacation/others showed the highest observed high-risk rate, its small sample size does limit the confidence in our results. More relevant categories were business and car, which combined elevated risk with a larger customer volume.
+
+- Vacation/others: 41.67% high risk, 12 customers
+- Business: 34.41% high risk, 93 customers
+- Car: 31.37% high risk, 322 customers
+- Radio/TV: 22.52% high risk, 262 customers
+
+3. Housing status appeared strongly associated with credit risk
+
+Housing status showed a clear difference in risk concentration. Borrowers that were in the free and rent categories has substantially higher high-risk rates than borrowers who own their housing. 
+
+- Free: 40.95% high risk
+- Rent: 39.05% high risk
+- Own: 26.47% high risk
+
+This suggests housing stability may be associated with lower credit risk and may be useful as an input for enhanced review or underwriting considerations.
+
+## 10. Recommendations 
+
+Based on the analysis, lenders could benefit from applying enhanced underwriting review to applicants that have a combination of the following characteristics: 
+
+- larger requested loan amounts
+- longer repayment durations
+- business-purpose loans
+- car-purpose loans
+- non-owner housing loans
+
+These factors should not be used as sole considerations when assessing risk for loan disbursements, but they could be meaningful metrics to consider in a broader risk-screening assessment. With these considerations, this could support stronger approval quality, more targeted documentation checks, and reduce credit loss exposure. 
+
+## 11. Limitations
+
+It is important to note that this analysis is completely exploratory and base on a single historical dataset. These findings are broader inferences, not proven relationships. Some categories, like vacation/others, had a very small sample size, which utlimately limits the confidence in broad conclusion based off those metrics. Additional analysis with recent and larger datasets would be required before applying these patterns directly to real-world lending policies. 
+
+## 12. 
+
+
+
 
