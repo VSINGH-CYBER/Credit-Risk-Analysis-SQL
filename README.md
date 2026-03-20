@@ -146,7 +146,17 @@ These factors should not be used as sole considerations when assessing risk for 
 
 It is important to note that this analysis is completely exploratory and base on a single historical dataset. These findings are broader inferences, not proven relationships. Some categories, like vacation/others, had a very small sample size, which utlimately limits the confidence in broad conclusion based off those metrics. Additional analysis with recent and larger datasets would be required before applying these patterns directly to real-world lending policies. 
 
-## 12. 
+## 12. Skills Demonstrated
+
+Here are some of the skills that are demonstrated throughout this project:
+
+- SQL querying and aggregation
+- Risk segmentation analysis
+- Business problem framing
+- Interpretation of borrower behavior data
+- Translation of analysis into recommendations
+- Analyst-style documentation and communication
+
 
 
 
