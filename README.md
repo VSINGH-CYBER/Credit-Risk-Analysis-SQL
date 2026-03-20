@@ -1,4 +1,4 @@
-# credit-risk-analysis-sql
+# Credit-Risk-Analysis-SQL
 
 ## 1. Project Overview
 **This project analyzes customer credit data to identify patterns associated with higher credit risk.** Using SQL in MySQL Workbench, I explored how borrower characteristics such as loan amount, loan duration, loan purpose, and housing status relate to risk outcomes. The goal here was to generate business level insights that could help form stronger underwriting review and risk monitoring decisions.
