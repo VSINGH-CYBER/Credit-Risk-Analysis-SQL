@@ -168,7 +168,22 @@ Here are some of the skills that are demonstrated throughout this project:
 - Translation of analysis into recommendations
 - Analyst-style documentation and communication
 
+## Key Query Output Screenshots
 
+### Customer Count by Credit Risk
+![Customer Count by Credit Risk](images/customer-count-by-credit-risk.png)
+
+### Average Credit Amount by Credit Risk
+![Average Credit Amount by Credit Risk](images/avg-credit-amount-by-risk.png)
+
+### Average Loan Duration by Credit Risk
+![Average Loan Duration by Credit Risk](images/avg-duration-by-risk.png)
+
+### High-Risk Rate by Loan Purpose
+![High-Risk Rate by Loan Purpose](images/high-risk-rate-by-purpose.png)
+
+### High-Risk Rate by Housing
+![High-Risk Rate by Housing](images/high-risk-rate-by-housing.png)
 
 
 
